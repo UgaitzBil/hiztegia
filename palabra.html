@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Definición bilingüe de un término de ciberseguridad.">
+    <title>Definición | Zibersegurtasun Hiztegia</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="particles-background" aria-hidden="true"></div>
+    <main class="detail-page">
+        <div class="detail-toolbar">
+            <a class="back-link" href="index.html">&lt; VOLVER_AL_DICCIONARIO</a>
+            <div class="language-switch" role="group" aria-label="Selector de idioma">
+                <button class="language-button is-active" type="button" data-language="es" aria-pressed="true">ES</button>
+                <button class="language-button" type="button" data-language="eu" aria-pressed="false">EU</button>
+            </div>
+        </div>
+        <article class="definition-card" id="definition-card" aria-live="polite">
+            <p class="section-number" id="evaluation-label"></p>
+            <p class="eyebrow" id="entry-label">ENTRADA DEL DICCIONARIO</p>
+            <h1 id="term-title"></h1>
+            <div class="definition-content">
+                <h2 id="definition-label">DEFINICIÓN</h2>
+                <p id="term-definition"></p>
+                <h2 id="example-label">EJEMPLO</h2>
+                <p class="example" id="term-example"></p>
+            </div>
+        </article>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="js/datos.js"></script>
+    <script>
+        /*
+         * URLSearchParams extrae ?id= de la URL. El idioma se recupera de
+         * localStorage para mantener la elección realizada en index.html.
+         */
+        const requestedId = new URLSearchParams(window.location.search).get('id');
+        const term = diccionario.find((entry) => entry.id === requestedId);
+        let currentLanguage = localStorage.getItem('hiztegia-language') || 'es';
+        const card = document.querySelector('#definition-card');
+        const labels = {
+            es: { entry: 'ENTRADA DEL DICCIONARIO', definition: 'DEFINICIÓN', example: 'EJEMPLO', evaluation: 'EVALUACIÓN', missing: 'TÉRMINO NO ENCONTRADO', message: 'Comprueba el enlace o vuelve al listado para elegir una entrada válida.' },
+            eu: { entry: 'HIZTEGIKO SARRERA', definition: 'DEFINIZIOA', example: 'ADIBIDEA', evaluation: 'EBALUAZIOA', missing: 'TERMINOA EZ DA AURKITU', message: 'Egiaztatu esteka edo itzuli zerrendara baliozko sarrera bat aukeratzeko.' }
+        };
+        // Pinta la entrada con el idioma actual y actualiza el estado visual del selector.
+        function renderDefinition() {
+            const languageLabels = labels[currentLanguage];
+            document.documentElement.lang = currentLanguage;
+            document.querySelectorAll('.language-button').forEach((button) => {
+                const active = button.dataset.language === currentLanguage;
+                button.classList.toggle('is-active', active);
+                button.setAttribute('aria-pressed', String(active));
+            });
+
+            if (!term) {
+                card.innerHTML = `<p class="eyebrow">${languageLabels.missing}</p><h1>404</h1><p>${languageLabels.message}</p><a class="button-link" href="index.html">&lt; VOLVER</a>`;
+                return;
+            }
+
+            document.title = `${term[`termino_${currentLanguage}`]} | Zibersegurtasun Hiztegia`;
+            document.querySelector('#evaluation-label').textContent = `${languageLabels.evaluation} ${term.evaluacion}`;
+            document.querySelector('#entry-label').textContent = languageLabels.entry;
+            document.querySelector('#definition-label').textContent = languageLabels.definition;
+            document.querySelector('#example-label').textContent = languageLabels.example;
+            document.querySelector('#term-title').textContent = term[`termino_${currentLanguage}`];
+            document.querySelector('#term-definition').textContent = term[`definicion_${currentLanguage}`];
+            document.querySelector('#term-example').textContent = term[`ejemplo_${currentLanguage}`];
+        }
+
+        const particleOptions = {
+            fpsLimit: 60,
+            particles: {
+                number: { value: 48, density: { enable: true, area: 900 } },
+                color: { value: '#00f0ff' },
+                links: { enable: true, color: '#00f0ff', opacity: 0.22, distance: 145, width: 1 },
+                move: { enable: true, speed: 0.55, direction: 'none', outModes: { default: 'out' } },
+                opacity: { value: 0.55 },
+                size: { value: { min: 1, max: 2.5 } }
+            },
+            interactivity: {
+                detectsOn: 'window',
+                events: { onHover: { enable: true, mode: 'grab' }, resize: true },
+                modes: { grab: { distance: 180, links: { opacity: 0.65 } } }
+            },
+            detectRetina: true
+        };
+
+        function animateDefinition() {
+            if (!term || !window.anime || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+
+            anime({
+                targets: '.definition-card',
+                opacity: [0, 1],
+                translateY: [28, 0],
+                duration: 700,
+                easing: 'easeOutCubic'
+            });
+
+            const title = document.querySelector('#term-title');
+            const finalText = title.textContent;
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]$#@';
+            const startedAt = performance.now();
+            const decodeTitle = () => {
+                const progress = Math.min((performance.now() - startedAt) / 650, 1);
+                const revealed = Math.floor(progress * finalText.length);
+                title.textContent = finalText.split('').map((character, index) => index < revealed
+                    ? character
+                    : characters[Math.floor(Math.random() * characters.length)]).join('');
+                if (progress < 1) requestAnimationFrame(decodeTitle);
+            };
+            requestAnimationFrame(decodeTitle);
+        }
+
+        function initializeVisualEffects() {
+            if (window.tsParticles) {
+                tsParticles.load('particles-background', particleOptions).catch(() => {
+                    // El contenido sigue siendo funcional si el CDN no está disponible.
+                });
+            }
+            animateDefinition();
+        }
+
+        // El selector funciona dentro de la página de detalle, sin recargar.
+        document.querySelectorAll('.language-button').forEach((button) => {
+            button.addEventListener('click', () => {
+                currentLanguage = button.dataset.language;
+                localStorage.setItem('hiztegia-language', currentLanguage);
+                renderDefinition();
+            });
+        });
+
+        renderDefinition();
+        initializeVisualEffects();
+    </script>
+    <script src="js/transiciones.js"></script>
+</body>
+</html>
