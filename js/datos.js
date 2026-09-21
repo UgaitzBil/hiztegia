@@ -1,7 +1,7 @@
-// Datos compartidos por el listado y la plantilla de detalle.
+// Datos compartidos por el listado y la plantilla de detalle (Actualizado con información de estudio).
 const diccionario = [
     // ==========================================
-    // PRIMERA EVALUACIÓN (Tus palabras reales)
+    // PRIMERA EVALUACIÓN
     // ==========================================
     {
         id: 'phishing',
@@ -11,6 +11,12 @@ const diccionario = [
         definicion_eu: 'Konfiantzazko erakunde baten itxura eginez informazio konfidentziala lapurtzeko mezu edo posta elektroniko iruzurtiak erabiltzen dituen iruzur-teknika.',
         ejemplo_es: 'Recibes un correo que imita a tu banco y te pide introducir tus claves en un enlace urgente.',
         ejemplo_eu: 'Zure bankuaren itxura duen mezu bat jasotzen duzu eta zure gakoak premiazko esteka batean sartzeko eskatzen dizu.',
+        concepto_clave_es: 'Se basa en la Ingeniería Social (manipular psicológicamente a las personas), no en hackear sistemas técnicos. El objetivo es que la víctima cometa el error. Variantes: Spear Phishing, Smishing, Vishing.',
+        concepto_clave_eu: 'Ingeniaritza Sozialean (pertsonak psikologikoki manipulatzean) oinarritzen da, ez sistema teknikoak hackeatzean. Helburua biktimak akatsa egitea da. Aldaerak: Spear Phishing, Smishing, Vishing.',
+        ejemplo_extra_es: 'Recibes un SMS diciendo que un paquete de Correos está retenido en aduanas y debes pagar 1,50€ en un enlace falso para liberarlo.',
+        ejemplo_extra_eu: 'Postako pakete bat aduanan atxikita dagoela eta hura askatzeko esteka faltsu batean 1,50€ ordaindu behar duzula esaten duen SMS bat jasotzen duzu.',
+        proteccion_es: 'Habilitar la Autenticación de Doble Factor (2FA) y revisar siempre la URL real en la barra de direcciones.',
+        proteccion_eu: 'Faktore Bikoitzeko Autentifikazioa (2FA) gaitzea eta helbide-barran beti benetako URLa berrikustea.',
         evaluacion: 1
     },
     {
@@ -21,6 +27,12 @@ const diccionario = [
         definicion_eu: 'Zerbitzu-ukapen Banatuaren Erasoa (DDoS). Zerbitzari, zerbitzu edo sare bat eskaera faltsuen trafiko masibo batez gainezkatzean datza, bere baliabideak agortzeko eta legezko erabiltzaileentzat erabilgarri ez egoteko.',
         ejemplo_es: 'Miles de ordenadores infectados (botnet) envían peticiones a la vez a la página web de un banco hasta que los servidores se colapsan y los clientes reales no pueden entrar.',
         ejemplo_eu: 'Milaka ordenagailu kutsatuk (botnet) eskaerak bidaltzen dizkiote aldi berean banku baten webguneari, zerbitzariek kolapsatu eta benetako bezeroek ezin duten arte sartu.',
+        concepto_clave_es: 'Atenta directamente contra el pilar de la Disponibilidad. Utiliza redes de ordenadores "zombis" infectados, conocidas como Botnets.',
+        concepto_clave_eu: 'Eskuragarritasunaren zutabearen aurka egiten du zuzenean. Infektatutako ordenagailu "zonbien" sareak erabiltzen ditu, Botnet gisa ezagutzen direnak.',
+        ejemplo_extra_es: 'Un ataque programado contra la plataforma virtual de una universidad el día de los exámenes finales, impidiendo que los alumnos accedan.',
+        ejemplo_extra_eu: 'Azken azterketen egunean unibertsitate bateko plataforma birtualaren aurka programatutako erasoa, ikasleei sartzea eragotziz.',
+        proteccion_es: 'Uso de balanceadores de carga, redes de distribución de contenido (CDN) y filtrado de tráfico anómalo por IP.',
+        proteccion_eu: 'Karga-balantzatzaileak, edukia banatzeko sareak (CDN) eta IP bidezko trafiko anomaloaren iragazketa erabiltzea.',
         evaluacion: 1
     },
     {
@@ -31,6 +43,12 @@ const diccionario = [
         definicion_eu: 'Erabiltzaileari itxuraz zilegia eta kaltegabea den programa gisa aurkezten zaion malware mota, baina exekutatzean, erasotzaileari urruneko sarbidea ematen diona edo sistema kaltetzen duena.',
         ejemplo_es: 'Bajas un juego gratuito que funciona bien, pero en segundo plano está abriendo una puerta trasera en tu ordenador.',
         ejemplo_eu: 'Ondo funtzionatzen duen doako joko bat deskargatzen duzu, baina atzealdean zure ordenagailuan atzeko ate bat irekitzen ari da.',
+        concepto_clave_es: 'No se replican a sí mismos (a diferencia de los virus o gusanos). Requieren que el usuario interactúe engañado por su apariencia.',
+        concepto_clave_eu: 'Ez dira beren kabuz erreplikatzen (birusak edo zizareak ez bezala). Erabiltzaileak haien itxuragatik engainatuta elkarreragitea eskatzen dute.',
+        ejemplo_extra_es: 'Descargas un programa de diseño gratis que instala silenciosamente un minero de criptomonedas que ralentiza tu PC.',
+        ejemplo_extra_eu: 'Zure ordenagailua moteltzen duen kriptomoneta-meatzari bat isilik instalatzen duen diseinu-programa bat doan deskargatzen duzu.',
+        proteccion_es: 'Descargar software únicamente de repositorios oficiales y mantener un antivirus (EDR) actualizado.',
+        proteccion_eu: 'Softwarea biltegi ofizialetatik soilik deskargatzea eta antibirus bat (EDR) eguneratuta mantentzea.',
         evaluacion: 1
     },
     {
@@ -41,6 +59,12 @@ const diccionario = [
         definicion_eu: 'Sistema batera sartzeko ohiko segurtasun-prozedurak saihestea ahalbidetzen duen ezkutuko metodoa, askotan erasotzaile batek ezkutuan instalatua.',
         ejemplo_es: 'Un cibercriminal aprovecha un fallo para instalar un acceso oculto y poder entrar al servidor de la empresa cuando quiera.',
         ejemplo_eu: 'Ziberkriminal batek akats bat aprobetxatzen du ezkutuko sarbide bat instalatzeko eta nahi duenean enpresaren zerbitzarian sartzeko.',
+        concepto_clave_es: 'Pueden ser maliciosas (creadas por un hacker para asegurar su regreso) o legítimas pero vulnerables (dejadas por desarrolladores para mantenimiento).',
+        concepto_clave_eu: 'Gaiztoak (hacker batek itzultzea ziurtatzeko sortuak) edo zilegiak baina zaurgarriak (garatzaileek mantentze-lanetarako utzitakoak) izan daitezke.',
+        ejemplo_extra_es: 'Un router que viene de fábrica con una cuenta de administrador oculta codificada en el firmware.',
+        ejemplo_extra_eu: 'Firmwarean kodetutako ezkutuko administratzaile-kontu batekin fabrikatik datorren bideratzaile (router) bat.',
+        proteccion_es: 'Auditorías de código fuente, monitoreo de integridad de archivos y segmentación de red.',
+        proteccion_eu: 'Iturburu-kodearen auditoretzak, fitxategien osotasunaren monitorizazioa eta sarearen segmentazioa.',
         evaluacion: 1
     },
     {
@@ -51,6 +75,12 @@ const diccionario = [
         definicion_eu: 'Erabiltzailearen baimenik gabe informazioa (hala nola pasahitzak edo nabigazio-ohiturak) zelatatu eta biltzeko gailu bat kutsatzen duen software gaiztoa.',
         ejemplo_es: 'Un programa oculto registra en secreto todo lo que tecleas para robar tus contraseñas del correo y el banco (Keylogger).',
         ejemplo_eu: 'Ezkutuko programa batek ezkutuan erregistratzen du tekleatzen duzun guztia, zure posta eta bankuko pasahitzak lapurtzeko.',
+        concepto_clave_es: 'Su prioridad absoluta es el sigilo y la persistencia. No busca destruir, sino permanecer en el sistema recopilando datos.',
+        concepto_clave_eu: 'Bere erabateko lehentasuna isilpekotasuna eta iraunkortasuna da. Ez du suntsitzea bilatzen, sisteman datuak biltzen jarraitzea baizik.',
+        ejemplo_extra_es: '"Stalkerware" instalado en el móvil por una expareja para rastrear ubicación y leer mensajes de forma invisible.',
+        ejemplo_extra_eu: 'Bikotekide ohi batek mugikorrean instalatutako "Stalkerwarea", kokapena arakatzeko eta mezuak modu ikusezinean irakurtzeko.',
+        proteccion_es: 'Revisar exhaustivamente los permisos de las aplicaciones móviles e instalar parches de seguridad del sistema operativo.',
+        proteccion_eu: 'Mugikorreko aplikazioen baimenak sakon berrikustea eta sistema eragilearen segurtasun-adabakiak instalatzea.',
         evaluacion: 1
     },
     {
@@ -61,11 +91,17 @@ const diccionario = [
         definicion_eu: 'Kutsatutako sistematik informazio baliotsua eta sentikorra azkar eta isilik lapurtzeko soilik diseinatutako malware mota espezifikoa.',
         ejemplo_es: 'Un archivo que, al abrirse, roba inmediatamente las cookies de sesión de tu navegador, tus contraseñas guardadas y los datos de tu billetera de criptomonedas.',
         ejemplo_eu: 'Irekitzean, zure nabigatzaileko saio-cookieak, gordetako pasahitzak eta kriptomoneta-zorroaren datuak berehala lapurtzen dituen fitxategia.',
+        concepto_clave_es: 'Se diferencian del spyware tradicional en su velocidad ("golpear y huir"). Roban archivos críticos de golpe y pueden borrarse a sí mismos para no dejar rastro.',
+        concepto_clave_eu: 'Spyware tradizionaletik beren abiaduran bereizten dira ("jo eta ihes egin"). Fitxategi kritikoak kolpez lapurtzen dituzte eta beren burua ezaba dezakete arrastorik ez uzteko.',
+        ejemplo_extra_es: 'Un enlace de YouTube que ejecuta un script y en 3 segundos envía todas tus contraseñas de Chrome a un servidor remoto.',
+        ejemplo_extra_eu: 'Script bat exekutatzen duen YouTubeko esteka, 3 segundotan zure Chrome-ko pasahitz guztiak urruneko zerbitzari batera bidaltzen dituena.',
+        proteccion_es: 'No guardar contraseñas críticas en el navegador y utilizar claves de seguridad físicas (FIDO2).',
+        proteccion_eu: 'Pasahitz kritikoak nabigatzailean ez gordetzea eta segurtasun-gako fisikoak (FIDO2) erabiltzea.',
         evaluacion: 1
     },
 
     // ==========================================
-    // SEGUNDA EVALUACIÓN (Mantenidas de prueba)
+    // SEGUNDA EVALUACIÓN
     // ==========================================
     {
         id: 'ransomware',
@@ -75,6 +111,12 @@ const diccionario = [
         definicion_eu: 'Biktimaren datuak blokeatu edo zifratu eta sarbidea itzultzeko erreskatea eskatzen duen malwarea.',
         ejemplo_es: 'Una empresa pierde el acceso a sus documentos y recibe una nota que exige criptomonedas.',
         ejemplo_eu: 'Enpresa batek dokumentuetarako sarbidea galtzen du eta kriptodirua eskatzen duen ohar bat jasotzen du.',
+        concepto_clave_es: 'Utiliza la criptografía de forma maliciosa. Hoy se aplica la "Doble Extorsión": cifran archivos y amenazan con publicarlos en internet si no pagas.',
+        concepto_clave_eu: 'Kriptografia modu gaiztoan erabiltzen du. Gaur egun "Estortsio Bikoitza" aplikatzen da: fitxategiak zifratu eta ordaindu ezean interneten argitaratzearekin mehatxatzen dute.',
+        ejemplo_extra_es: 'El ataque WannaCry que paralizó hospitales, cifrando historiales médicos hasta que se pagara un rescate en Bitcoin.',
+        ejemplo_extra_eu: 'Ospitaleak geldiarazi zituen WannaCry erasoa, historia medikoak zifratuz Bitcoin bidezko erreskatea ordaindu arte.',
+        proteccion_es: 'Seguir la regla de copias de seguridad 3-2-1 (3 copias, 2 medios distintos, 1 copia offline).',
+        proteccion_eu: '3-2-1 babeskopien araua jarraitzea (3 kopia, 2 bitarteko ezberdin, kopia 1 lineaz kanpo).',
         evaluacion: 2
     },
     {
@@ -85,6 +127,12 @@ const diccionario = [
         definicion_eu: 'Segurtasun-arauetan oinarrituta sareko trafikoa monitorizatu eta kontrolatzen duen sistema.',
         ejemplo_es: 'El firewall bloquea una conexión entrante que no pertenece a ningún servicio autorizado.',
         ejemplo_eu: 'Firewall-ak baimendutako zerbitzu bati ez dagokion sarrerako konexio bat blokeatzen du.',
+        concepto_clave_es: 'Es una defensa de perímetro. Funciona leyendo cabeceras (IPs, puertos) y aplicando reglas. Los de nueva generación (NGFW) inspeccionan el interior del paquete.',
+        concepto_clave_eu: 'Perimetroko defentsa bat da. Goiburuak (IPak, portuak) irakurriz eta arauak aplikatuz funtzionatzen du. Belaunaldi berrikoek (NGFW) paketearen barrualdea ikuskatzen dute.',
+        ejemplo_extra_es: 'El firewall de un instituto bloquea cualquier conexión hacia puertos de juegos online o clientes Torrent.',
+        ejemplo_extra_eu: 'Institutu bateko firewall-ak lineako jokoen edo Torrent bezeroen portuetarako konexioak blokeatzen ditu.',
+        proteccion_es: 'Configurar políticas de red con filosofía Zero Trust ("Denegar todo por defecto" y solo permitir lo necesario).',
+        proteccion_eu: 'Sareko politikak Zero Trust filosofiarekin konfiguratzea ("Lehenetsi gisa dena ukatu" eta beharrezkoa bakarrik baimendu).',
         evaluacion: 2
     },
     {
@@ -95,6 +143,12 @@ const diccionario = [
         definicion_eu: 'Internet bidez konexio zifratu bat sortzen duen teknologia, pribatutasuna eta datuak babesteko.',
         ejemplo_es: 'Usas una VPN para conectarte de forma más segura a la red de tu centro desde una cafetería.',
         ejemplo_eu: 'VPN bat erabiltzen duzu kafetegi batetik zure ikastetxeko sarera modu seguruagoan konektatzeko.',
+        concepto_clave_es: 'Se basa en Tunelización y Cifrado. Oculta tu tráfico en la red local, pero no te hace 100% anónimo. Protocolos recomendados: WireGuard y OpenVPN.',
+        concepto_clave_eu: 'Tunelizazioan eta Zifratzean oinarritzen da. Sare lokaleko trafikoa ezkutatzen du, baina ez zaitu %100ean anonimo egiten. Gomendatutako protokoloak: WireGuard eta OpenVPN.',
+        ejemplo_extra_es: 'Activar la VPN en el Wi-Fi público de un aeropuerto para evitar que otros puedan espiar tus contraseñas de trabajo.',
+        ejemplo_extra_eu: 'Aireportu bateko Wi-Fi publikoan VPN aktibatzea, besteek zure laneko pasahitzak zelatatu ez ditzaten.',
+        proteccion_es: 'Evitar VPNs gratuitas comerciales que venden tus datos de navegación, y utilizar proveedores auditados.',
+        proteccion_eu: 'Zure nabigazio-datuak saltzen dituzten doako VPN komertzialak saihestea, eta ikuskatutako hornitzaileak erabiltzea.',
         evaluacion: 2
     }
 ];

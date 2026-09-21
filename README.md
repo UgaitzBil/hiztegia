@@ -1,10 +1,10 @@
 # Zibersegurtasun Hiztegia
 
-Diccionario web bilingüe de ciberseguridad construido únicamente con **HTML5, CSS3 y JavaScript Vanilla**. La interfaz utiliza una estética oscura tipo hacker/terminal, con acentos neón, partículas interactivas y animaciones de entrada.
+Diccionario web bilingüe de ciberseguridad construido únicamente con **HTML5, CSS3 y JavaScript Vanilla**. La interfaz utiliza una estética tipo hacker/terminal, con tema oscuro por defecto, tema claro opcional, acentos neón, partículas interactivas y animaciones de entrada.
 
 ## Características
 
-- Diseño responsive con tema oscuro.
+- Diseño responsive con tema oscuro por defecto y botón para cambiar a tema claro.
 - Estética terminal/cyberpunk:
   - Fondo `#0b0f19`.
   - Paneles azul grisáceo oscuro.
@@ -15,6 +15,7 @@ Diccionario web bilingüe de ciberseguridad construido únicamente con **HTML5, 
 - Selector de idioma español/euskera.
 - Cambio de idioma sin recargar la página.
 - Preferencia de idioma guardada en `localStorage`.
+- Preferencia de tema guardada en `localStorage`.
 - Animación de entrada de tarjetas con Anime.js.
 - Efecto de descodificación tipo Matrix en los términos.
 - Título principal con efecto glitch.
@@ -33,6 +34,9 @@ Hiztegia/
 ├── css/
 │   └── style.css
 └── js/
+    ├── cards.js
+    ├── datos.js
+    ├── tema.js
     └── transiciones.js
 ```
 

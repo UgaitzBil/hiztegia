@@ -16,22 +16,40 @@
                 <button class="language-button is-active" type="button" data-language="es" aria-pressed="true">ES</button>
                 <button class="language-button" type="button" data-language="eu" aria-pressed="false">EU</button>
             </div>
+            <button class="theme-button" type="button" data-theme-toggle aria-pressed="false" aria-label="Cambiar a tema claro" title="Cambiar a tema claro">☼</button>
         </div>
         <article class="definition-card" id="definition-card" aria-live="polite">
             <p class="section-number" id="evaluation-label"></p>
             <p class="eyebrow" id="entry-label">ENTRADA DEL DICCIONARIO</p>
             <h1 id="term-title"></h1>
             <div class="definition-content">
-                <h2 id="definition-label">DEFINICIÓN</h2>
-                <p id="term-definition"></p>
-                <h2 id="example-label">EJEMPLO</h2>
-                <p class="example" id="term-example"></p>
+                <section class="definition-section">
+                    <h2 id="definition-label">DEFINICIÓN</h2>
+                    <p id="term-definition"></p>
+                </section>
+                <section class="definition-section">
+                    <h2 id="example-label">EJEMPLO</h2>
+                    <p class="example" id="term-example"></p>
+                </section>
+                <section class="definition-section">
+                    <h2 id="key-concept-label">CONCEPTO CLAVE</h2>
+                    <p id="term-key-concept"></p>
+                </section>
+                <section class="definition-section">
+                    <h2 id="extra-example-label">EJEMPLO ADICIONAL</h2>
+                    <p class="example" id="term-extra-example"></p>
+                </section>
+                <section class="definition-section protection-section">
+                    <h2 id="protection-label">PROTECCIÓN</h2>
+                    <p id="term-protection"></p>
+                </section>
             </div>
         </article>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="js/datos.js"></script>
+    <script src="js/tema.js"></script>
     <script>
         /*
          * URLSearchParams extrae ?id= de la URL. El idioma se recupera de
@@ -42,8 +60,8 @@
         let currentLanguage = localStorage.getItem('hiztegia-language') || 'es';
         const card = document.querySelector('#definition-card');
         const labels = {
-            es: { entry: 'ENTRADA DEL DICCIONARIO', definition: 'DEFINICIÓN', example: 'EJEMPLO', evaluation: 'EVALUACIÓN', missing: 'TÉRMINO NO ENCONTRADO', message: 'Comprueba el enlace o vuelve al listado para elegir una entrada válida.' },
-            eu: { entry: 'HIZTEGIKO SARRERA', definition: 'DEFINIZIOA', example: 'ADIBIDEA', evaluation: 'EBALUAZIOA', missing: 'TERMINOA EZ DA AURKITU', message: 'Egiaztatu esteka edo itzuli zerrendara baliozko sarrera bat aukeratzeko.' }
+            es: { entry: 'ENTRADA DEL DICCIONARIO', definition: 'DEFINICIÓN', example: 'EJEMPLO', keyConcept: 'CONCEPTO CLAVE', extraExample: 'EJEMPLO ADICIONAL', protection: 'PROTECCIÓN', evaluation: 'EVALUACIÓN', missing: 'TÉRMINO NO ENCONTRADO', message: 'Comprueba el enlace o vuelve al listado para elegir una entrada válida.' },
+            eu: { entry: 'HIZTEGIKO SARRERA', definition: 'DEFINIZIOA', example: 'ADIBIDEA', keyConcept: 'KONTZEPTU GAKOA', extraExample: 'ADIBIDE GEHIGARRIA', protection: 'BABESA', evaluation: 'EBALUAZIOA', missing: 'TERMINOA EZ DA AURKITU', message: 'Egiaztatu esteka edo itzuli zerrendara baliozko sarrera bat aukeratzeko.' }
         };
         // Pinta la entrada con el idioma actual y actualiza el estado visual del selector.
         function renderDefinition() {
@@ -65,9 +83,15 @@
             document.querySelector('#entry-label').textContent = languageLabels.entry;
             document.querySelector('#definition-label').textContent = languageLabels.definition;
             document.querySelector('#example-label').textContent = languageLabels.example;
+            document.querySelector('#key-concept-label').textContent = languageLabels.keyConcept;
+            document.querySelector('#extra-example-label').textContent = languageLabels.extraExample;
+            document.querySelector('#protection-label').textContent = languageLabels.protection;
             document.querySelector('#term-title').textContent = term[`termino_${currentLanguage}`];
             document.querySelector('#term-definition').textContent = term[`definicion_${currentLanguage}`];
             document.querySelector('#term-example').textContent = term[`ejemplo_${currentLanguage}`];
+            document.querySelector('#term-key-concept').textContent = term[`concepto_clave_${currentLanguage}`];
+            document.querySelector('#term-extra-example').textContent = term[`ejemplo_extra_${currentLanguage}`];
+            document.querySelector('#term-protection').textContent = term[`proteccion_${currentLanguage}`];
         }
 
         const particleOptions = {
