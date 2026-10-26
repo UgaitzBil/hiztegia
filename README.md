@@ -10,7 +10,8 @@ Diccionario web bilingüe de ciberseguridad construido únicamente con **HTML5, 
   - Paneles azul grisáceo oscuro.
   - Texto claro.
   - Acentos cyan `#00f0ff` y verde terminal `#00ff66`.
-- Diccionario organizado en dos evaluaciones.
+- Diccionario organizado en dos evaluaciones y una sección de ataques históricos.
+- Fichas bilingües sobre Stuxnet y WannaCry, con hechos, características e impacto.
 - Página de detalle reutilizable para todos los términos.
 - Selector de idioma español/euskera.
 - Cambio de idioma sin recargar la página.
@@ -44,7 +45,7 @@ Hiztegia/
 
 ### `datos.js`
 
-Contiene el array `diccionario`, que actúa como fuente única de datos para el listado y las páginas individuales.
+Contiene los arrays `diccionario` y `erasoak`. `diccionario` actúa como fuente única de datos para el listado y las páginas individuales; `erasoak` contiene las fichas de ataques históricos mostradas en la sección `03 / ERASOAK`.
 
 Cada término tiene esta estructura:
 

@@ -4,7 +4,8 @@ const translations = {
         title: 'Zibersegurtasun Hiztegia',
         intro: 'Explora los conceptos esenciales para moverte con seguridad por el mundo digital.',
         evaluation1: '01 / PRIMERA EVALUACIÓN', evaluation2: '02 / SEGUNDA EVALUACIÓN',
-        description1: 'Fundamentos y amenazas habituales.', description2: 'Herramientas y medidas de protección.',
+        description1: 'Fundamentos y amenazas habituales.', description2: 'Amenazas y técnicas de ataque.',
+        attacks: '03 / ATAQUES', attacksDescription: 'Ejemplos de ciberataques con gran impacto.',
         term: 'TÉRMINO', action: 'CONSULTAR DEFINICIÓN', footer: 'SISTEMA ACTIVO // APRENDER ES PROTEGER'
     },
     eu: {
@@ -12,7 +13,8 @@ const translations = {
         title: 'Zibersegurtasun Hiztegia',
         intro: 'Arakatu mundu digitalean modu seguruan mugitzeko oinarrizko kontzeptuak.',
         evaluation1: '01 / LEHEN EBALUAZIOA', evaluation2: '02 / BIGARREN EBALUAZIOA',
-        description1: 'Oinarriak eta ohiko mehatxuak.', description2: 'Babeserako tresnak eta neurriak.',
+        description1: 'Oinarriak eta ohiko mehatxuak.', description2: 'Mehatxuak eta eraso-teknikak.',
+        attacks: '03 / ERASOAK', attacksDescription: 'Eragin handia izan duten zibererasoen adibideak.',
         term: 'TERMINOA', action: 'DEFINIZIOA IKUSI', footer: 'SISTEMA AKTIBOA // IKASTEA BABESTEA DA'
     }
 };
@@ -88,6 +90,31 @@ function renderInterface() {
                 grid.appendChild(card);
             });
     });
+    const attackGrid = document.querySelector('[data-attacks]');
+    if (attackGrid) {
+        attackGrid.replaceChildren();
+        erasoak.forEach((attack, index) => {
+            const card = document.createElement('article');
+            card.className = 'attack-card';
+            card.style.setProperty('--card-delay', `${index * 100}ms`);
+            card.innerHTML = `
+                <p class="attack-card__meta">${attack[`noiz_${currentLanguage}`]}</p>
+                <h3>${attack[`izen_${currentLanguage}`]}</h3>
+                <section>
+                    <h4>${currentLanguage === 'es' ? 'QUÉ OCURRIÓ' : 'ZER GERTATU ZEN'}</h4>
+                    <p>${attack[`gertatutakoa_${currentLanguage}`]}</p>
+                </section>
+                <section>
+                    <h4>${currentLanguage === 'es' ? 'CARACTERÍSTICAS' : 'EZAUGARRIAK'}</h4>
+                    <p>${attack[`ezaugarriak_${currentLanguage}`]}</p>
+                </section>
+                <section class="attack-card__impact">
+                    <h4>${currentLanguage === 'es' ? 'IMPACTO' : 'ERAGINA'}</h4>
+                    <p>${attack[`eragina_${currentLanguage}`]}</p>
+                </section>`;
+            attackGrid.appendChild(card);
+        });
+    }
     animateCards();
 }
 
