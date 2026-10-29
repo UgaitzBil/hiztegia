@@ -43,6 +43,10 @@
                     <h2 id="protection-label">PROTECCIÓN</h2>
                     <p id="term-protection"></p>
                 </section>
+                <section class="definition-section security-goal-section">
+                    <h2 id="security-goal-label">OBJETIVO DE SEGURIDAD</h2>
+                    <p id="term-security-goal"></p>
+                </section>
             </div>
         </article>
     </main>
@@ -60,8 +64,8 @@
         let currentLanguage = localStorage.getItem('hiztegia-language') || 'es';
         const card = document.querySelector('#definition-card');
         const labels = {
-            es: { entry: 'ENTRADA DEL DICCIONARIO', definition: 'DEFINICIÓN', example: 'EJEMPLO', keyConcept: 'CONCEPTO CLAVE', extraExample: 'EJEMPLO ADICIONAL', protection: 'PROTECCIÓN', evaluation: 'EVALUACIÓN', missing: 'TÉRMINO NO ENCONTRADO', message: 'Comprueba el enlace o vuelve al listado para elegir una entrada válida.' },
-            eu: { entry: 'HIZTEGIKO SARRERA', definition: 'DEFINIZIOA', example: 'ADIBIDEA', keyConcept: 'KONTZEPTU GAKOA', extraExample: 'ADIBIDE GEHIGARRIA', protection: 'BABESA', evaluation: 'EBALUAZIOA', missing: 'TERMINOA EZ DA AURKITU', message: 'Egiaztatu esteka edo itzuli zerrendara baliozko sarrera bat aukeratzeko.' }
+            es: { entry: 'ENTRADA DEL DICCIONARIO', definition: 'DEFINICIÓN', example: 'EJEMPLO', keyConcept: 'CONCEPTO CLAVE', extraExample: 'EJEMPLO ADICIONAL', protection: 'PROTECCIÓN', securityGoal: 'OBJETIVO DE SEGURIDAD', evaluation: 'EVALUACIÓN', missing: 'TÉRMINO NO ENCONTRADO', message: 'Comprueba el enlace o vuelve al listado para elegir una entrada válida.' },
+            eu: { entry: 'HIZTEGIKO SARRERA', definition: 'DEFINIZIOA', example: 'ADIBIDEA', keyConcept: 'KONTZEPTU GAKOA', extraExample: 'ADIBIDE GEHIGARRIA', protection: 'BABESA', securityGoal: 'SEGURTASUN-HELBURUA', evaluation: 'EBALUAZIOA', missing: 'TERMINOA EZ DA AURKITU', message: 'Egiaztatu esteka edo itzuli zerrendara baliozko sarrera bat aukeratzeko.' }
         };
         // Pinta la entrada con el idioma actual y actualiza el estado visual del selector.
         function renderDefinition() {
@@ -86,12 +90,14 @@
             document.querySelector('#key-concept-label').textContent = languageLabels.keyConcept;
             document.querySelector('#extra-example-label').textContent = languageLabels.extraExample;
             document.querySelector('#protection-label').textContent = languageLabels.protection;
+            document.querySelector('#security-goal-label').textContent = languageLabels.securityGoal;
             document.querySelector('#term-title').textContent = term[`termino_${currentLanguage}`];
             document.querySelector('#term-definition').textContent = term[`definicion_${currentLanguage}`];
             document.querySelector('#term-example').textContent = term[`ejemplo_${currentLanguage}`];
             document.querySelector('#term-key-concept').textContent = term[`concepto_clave_${currentLanguage}`];
             document.querySelector('#term-extra-example').textContent = term[`ejemplo_extra_${currentLanguage}`];
             document.querySelector('#term-protection').textContent = term[`proteccion_${currentLanguage}`];
+            document.querySelector('#term-security-goal').textContent = term[`helburuak_${currentLanguage}`];
         }
 
         const particleOptions = {

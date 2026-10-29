@@ -6,7 +6,7 @@ const translations = {
         evaluation1: '01 / PRIMERA EVALUACIÓN', evaluation2: '02 / SEGUNDA EVALUACIÓN',
         description1: 'Fundamentos y amenazas habituales.', description2: 'Amenazas y técnicas de ataque.',
         attacks: '03 / ATAQUES', attacksDescription: 'Ejemplos de ciberataques con gran impacto.',
-        term: 'TÉRMINO', action: 'CONSULTAR DEFINICIÓN', footer: 'SISTEMA ACTIVO // APRENDER ES PROTEGER'
+        term: 'TÉRMINO', securityGoal: 'OBJETIVO', action: 'CONSULTAR DEFINICIÓN', footer: 'SISTEMA ACTIVO // APRENDER ES PROTEGER'
     },
     eu: {
         eyebrow: 'ZIBERSEGURTASUN HIZTEGIA // HEZKUNTZA-TERMINALA',
@@ -15,7 +15,7 @@ const translations = {
         evaluation1: '01 / LEHEN EBALUAZIOA', evaluation2: '02 / BIGARREN EBALUAZIOA',
         description1: 'Oinarriak eta ohiko mehatxuak.', description2: 'Mehatxuak eta eraso-teknikak.',
         attacks: '03 / ERASOAK', attacksDescription: 'Eragin handia izan duten zibererasoen adibideak.',
-        term: 'TERMINOA', action: 'DEFINIZIOA IKUSI', footer: 'SISTEMA AKTIBOA // IKASTEA BABESTEA DA'
+        term: 'TERMINOA', securityGoal: 'HELBURUA', action: 'DEFINIZIOA IKUSI', footer: 'SISTEMA AKTIBOA // IKASTEA BABESTEA DA'
     }
 };
 
@@ -86,6 +86,7 @@ function renderInterface() {
                 card.dataset.finalText = term[`termino_${currentLanguage}`];
                 card.innerHTML = `<span class="term-card__label">${translations[currentLanguage].term} // ${term.id}</span>
                     <h3 class="term-card__title" aria-label="${card.dataset.finalText}">${card.dataset.finalText}</h3>
+                    <span class="term-card__goal">${translations[currentLanguage].securityGoal}: ${term[`helburuak_${currentLanguage}`]}</span>
                     <span class="term-card__action">${translations[currentLanguage].action} <span aria-hidden="true">→</span></span>`;
                 grid.appendChild(card);
             });

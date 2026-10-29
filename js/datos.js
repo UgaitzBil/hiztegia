@@ -17,7 +17,9 @@ const diccionario = [
         ejemplo_extra_eu: 'Postako pakete bat aduanan atxikita dagoela eta hura askatzeko esteka faltsu batean 1,50€ ordaindu behar duzula esaten duen SMS bat jasotzen duzu.',
         proteccion_es: 'Habilitar la Autenticación de Doble Factor (2FA) y revisar siempre la URL real en la barra de direcciones.',
         proteccion_eu: 'Faktore Bikoitzeko Autentifikazioa (2FA) gaitzea eta helbide-barran beti benetako URLa berrikustea.',
-        evaluacion: 1
+        evaluacion: 1,
+        helburuak_es: 'Confidencialidad, autenticación y no repudio',
+        helburuak_eu: 'Konfidentzialtasuna, autentifikazioa eta ez-gaiteztea'
     },
     {
         id: 'ddos',
@@ -33,7 +35,9 @@ const diccionario = [
         ejemplo_extra_eu: 'Azken azterketen egunean unibertsitate bateko plataforma birtualaren aurka programatutako erasoa, ikasleei sartzea eragotziz.',
         proteccion_es: 'Uso de balanceadores de carga, redes de distribución de contenido (CDN) y filtrado de tráfico anómalo por IP.',
         proteccion_eu: 'Karga-balantzatzaileak, edukia banatzeko sareak (CDN) eta IP bidezko trafiko anomaloaren iragazketa erabiltzea.',
-        evaluacion: 1
+        evaluacion: 1,
+        helburuak_es: 'Disponibilidad',
+        helburuak_eu: 'Erabilgarritasuna'
     },
     {
         id: 'troyano',
@@ -49,7 +53,9 @@ const diccionario = [
         ejemplo_extra_eu: 'Zure ordenagailua moteltzen duen kriptomoneta-meatzari bat isilik instalatzen duen diseinu-programa bat doan deskargatzen duzu.',
         proteccion_es: 'Descargar software únicamente de repositorios oficiales y mantener un antivirus (EDR) actualizado.',
         proteccion_eu: 'Softwarea biltegi ofizialetatik soilik deskargatzea eta antibirus bat (EDR) eguneratuta mantentzea.',
-        evaluacion: 1
+        evaluacion: 2,
+        helburuak_es: 'Integridad y autenticación',
+        helburuak_eu: 'Osasuna eta autentifikazioa'
     },
     {
         id: 'backdoors',
@@ -65,7 +71,9 @@ const diccionario = [
         ejemplo_extra_eu: 'Firmwarean kodetutako ezkutuko administratzaile-kontu batekin fabrikatik datorren bideratzaile (router) bat.',
         proteccion_es: 'Auditorías de código fuente, monitoreo de integridad de archivos y segmentación de red.',
         proteccion_eu: 'Iturburu-kodearen auditoretzak, fitxategien osotasunaren monitorizazioa eta sarearen segmentazioa.',
-        evaluacion: 1
+        evaluacion: 2,
+        helburuak_es: 'Autenticación e integridad',
+        helburuak_eu: 'Autentifikazioa eta osasuna'
     },
     {
         id: 'spyware',
@@ -81,7 +89,9 @@ const diccionario = [
         ejemplo_extra_eu: 'Bikotekide ohi batek mugikorrean instalatutako "Stalkerwarea", kokapena arakatzeko eta mezuak modu ikusezinean irakurtzeko.',
         proteccion_es: 'Revisar exhaustivamente los permisos de las aplicaciones móviles e instalar parches de seguridad del sistema operativo.',
         proteccion_eu: 'Mugikorreko aplikazioen baimenak sakon berrikustea eta sistema eragilearen segurtasun-adabakiak instalatzea.',
-        evaluacion: 1
+        evaluacion: 1,
+        helburuak_es: 'Confidencialidad',
+        helburuak_eu: 'Konfidentzialtasuna'
     },
     {
         id: 'stealers',
@@ -97,7 +107,9 @@ const diccionario = [
         ejemplo_extra_eu: 'Script bat exekutatzen duen YouTubeko esteka, 3 segundotan zure Chrome-ko pasahitz guztiak urruneko zerbitzari batera bidaltzen dituena.',
         proteccion_es: 'No guardar contraseñas críticas en el navegador y utilizar claves de seguridad físicas (FIDO2).',
         proteccion_eu: 'Pasahitz kritikoak nabigatzailean ez gordetzea eta segurtasun-gako fisikoak (FIDO2) erabiltzea.',
-        evaluacion: 1
+        evaluacion: 1,
+        helburuak_es: 'Confidencialidad',
+        helburuak_eu: 'Konfidentzialtasuna'
     },
 
     // ==========================================
@@ -108,16 +120,54 @@ const diccionario = [
         termino_es: 'Koobface',
         termino_eu: 'Koobface',
         definicion_es: 'Gusano informático y botnet que se propagaba principalmente a través de redes sociales. Intentaba robar credenciales, mostrar publicidad maliciosa y convertir los dispositivos infectados en parte de una red controlada por atacantes.',
-        definicion_eu: 'Sare sozialetan batez ere zabaltzen zen zizare informatikoa eta botnet-a. Kredentzialak lapurtzen, publizitate gaiztoa erakusten eta kutsatutako gailuak erasotzaileek kontrolatutako sare baten parte bihurtzen saiatzen zen.',
-        ejemplo_es: 'Un usuario recibe un mensaje de un contacto conocido con un enlace a un vídeo. Al abrirlo, descarga malware y su cuenta empieza a enviar el mismo mensaje a sus contactos.',
+        definicion_eu: 'Sare sozialetan batez ere zabaltzen zen zizare informatikoa eta botnet-a. Kredentzialak lapurtzen, publizitate gaiztoa erakusten eta kutsatutako gailuak erasotzaileek kontrolatutako sarearen parte bihurtzen saiatzen zen.',
+        ejemplo_es: 'Un usuario recibe de un contacto conocido un enlace a un vídeo. Al abrirlo, descarga malware y su cuenta empieza a enviar el mismo mensaje a sus contactos.',
         ejemplo_eu: 'Erabiltzaile batek bideo baterako esteka duen mezu bat jasotzen du ezagun batengandik. Irekita, malwarea deskargatzen du eta bere kontua mezu bera kontaktuei bidaltzen hasten da.',
         concepto_clave_es: 'Koobface combinaba ingeniería social y malware: aprovechaba la confianza entre contactos para conseguir nuevas infecciones y ampliar su botnet.',
         concepto_clave_eu: 'Koobfacek ingeniaritza soziala eta malwarea konbinatzen zituen: kontaktuen arteko konfiantza baliatzen zuen infekzio berriak lortzeko eta bere botnet-a handitzeko.',
-        ejemplo_extra_es: 'Una publicación aparentemente enviada por un amigo pide instalar una actualización de un reproductor para ver un vídeo, pero el instalador contiene el malware.',
-        ejemplo_extra_eu: 'Lagun batek bidalitako argitalpen baten itxurako batek bideoa ikusteko erreproduzitzaile baten eguneraketa instalatzea eskatzen du, baina instalatzaileak malwarea dauka.',
+        ejemplo_extra_es: 'Una publicación aparentemente enviada por un amigo pide instalar una actualización para ver un vídeo, pero el instalador contiene el malware.',
+        ejemplo_extra_eu: 'Lagun batek bidalitako argitalpen baten itxurako batek bideoa ikusteko eguneraketa bat instalatzea eskatzen du, baina instalatzaileak malwarea dauka.',
         proteccion_es: 'No abrir enlaces inesperados, verificar el mensaje por otro canal, mantener el sistema actualizado y utilizar protección antimalware.',
         proteccion_eu: 'Ez ireki ustekabeko estekarik, egiaztatu mezua beste kanal baten bidez, mantendu sistema eguneratuta eta erabili malwarearen aurkako babesa.',
-        evaluacion: 2
+        evaluacion: 2,
+        helburuak_es: 'Confidencialidad, autenticación y no repudio',
+        helburuak_eu: 'Konfidentzialtasuna, autentifikazioa eta ez-gaiteztea'
+    },
+    {
+        id: 'indar-gordineko-erasoa',
+        termino_es: 'Ataque de fuerza bruta',
+        termino_eu: 'Indar gordineko erasoa',
+        definicion_es: 'Técnica que prueba sistemáticamente muchas contraseñas, claves o combinaciones hasta encontrar la correcta y obtener acceso a una cuenta o sistema.',
+        definicion_eu: 'Pasahitz, gako edo konbinazio asko sistematikoki probatzen dituen teknika, zuzena aurkitu eta kontu edo sistema batera sartzeko.',
+        ejemplo_es: 'Un atacante prueba miles de combinaciones contra una cuenta que utiliza una contraseña corta y común hasta conseguir iniciar sesión.',
+        ejemplo_eu: 'Erasotzaile batek milaka konbinazio probatzen ditu pasahitz labur eta arrunta erabiltzen duen kontu baten aurka, saioa hastea lortu arte.',
+        concepto_clave_es: 'Los ataques de diccionario utilizan listas de palabras y contraseñas filtradas; la fuerza bruta pura prueba todas las combinaciones posibles.',
+        concepto_clave_eu: 'Hiztegi-erasoek hitz eta filtratutako pasahitzen zerrendak erabiltzen dituzte; indar gordineko eraso hutsek konbinazio posible guztiak probatzen dituzte.',
+        ejemplo_extra_es: 'Un servicio bloquea temporalmente una cuenta después de varios intentos fallidos y exige autenticación multifactor.',
+        ejemplo_extra_eu: 'Zerbitzu batek kontu bat aldi baterako blokeatzen du huts egindako hainbat saiakeraren ondoren, eta faktore anitzeko autentifikazioa eskatzen du.',
+        proteccion_es: 'Usar contraseñas largas y únicas, activar MFA, limitar los intentos de inicio de sesión y aplicar bloqueos progresivos.',
+        proteccion_eu: 'Erabili pasahitz luze eta bakarrak, aktibatu MFA, mugatu saioa hasteko saiakerak eta ezarri blokeoak edo itxaronaldi progresiboak.',
+        evaluacion: 2,
+        helburuak_es: 'Autenticación',
+        helburuak_eu: 'Autentifikazioa'
+    },
+    {
+        id: 'harrak',
+        termino_es: 'Gusanos (Worms)',
+        termino_eu: 'Harrak (Worms)',
+        definicion_es: 'Malware que se replica y se propaga automáticamente por redes, aprovechando vulnerabilidades o servicios expuestos, sin necesitar que el usuario ejecute un archivo.',
+        definicion_eu: 'Sareetan automatikoki erreplikatu eta zabaltzen den malwarea, zaurgarritasunak edo agerian dauden zerbitzuak baliatuz, erabiltzaileak fitxategirik exekutatu beharrik gabe.',
+        ejemplo_es: 'Un gusano abre una puerta de red, se copia en otros equipos y finaliza procesos de seguridad para seguir propagándose.',
+        ejemplo_eu: 'Har batek sareko ataka bat irekitzen du, beste ekipo batzuetan kopiatzen da eta segurtasun-prozesuak amaitzen ditu zabaltzen jarraitzeko.',
+        concepto_clave_es: 'A diferencia de un troyano, puede propagarse por sí mismo. Puede poner en riesgo la confidencialidad y dificultar el trabajo normal del equipo.',
+        concepto_clave_eu: 'Troiar batek ez bezala, bere kabuz zabal daiteke. Konfidentzialtasuna arriskuan jar dezake eta ekipoaren ohiko lana zaildu.',
+        ejemplo_extra_es: 'Un equipo sin parches queda expuesto a un servicio vulnerable y el gusano lo infecta para descargar más malware.',
+        ejemplo_extra_eu: 'Adabakirik gabeko ekipo bat zerbitzu zaurgarri baten aurrean geratzen da, eta har batek kutsatu egiten du malware gehiago deskargatzeko.',
+        proteccion_es: 'Mantener el sistema actualizado, cerrar puertos innecesarios, utilizar un antivirus actualizado y segmentar la red.',
+        proteccion_eu: 'Sistema eguneratuta mantentzea, beharrezkoak ez diren atakak ixtea, antibirus eguneratua erabiltzea eta sarea segmentatzea.',
+        evaluacion: 2,
+        helburuak_es: 'Confidencialidad e integridad',
+        helburuak_eu: 'Konfidentzialtasuna eta osasuna'
     },
     {
         id: 'botnet',
@@ -133,23 +183,27 @@ const diccionario = [
         ejemplo_extra_eu: 'Lehenetsitako pasahitza duen etxeko bideratzaile bat kutsatu egiten da eta spam-kanpainetan parte hartzen hasten da, normaltasunez funtzionatzen jarraitzen duen bitartean.',
         proteccion_es: 'Cambiar las credenciales predeterminadas, actualizar el firmware, desactivar servicios innecesarios y vigilar el tráfico de red anómalo.',
         proteccion_eu: 'Aldatu lehenetsitako kredentzialak, eguneratu firmwarea, desaktibatu beharrezkoak ez diren zerbitzuak eta zaindu sareko trafiko anomaloa.',
-        evaluacion: 2
+        evaluacion: 2,
+        helburuak_es: 'Disponibilidad y confidencialidad',
+        helburuak_eu: 'Erabilgarritasuna eta konfidentzialtasuna'
     },
     {
-        id: 'indar-gordineko-erasoa',
-        termino_es: 'Ataque de fuerza bruta',
-        termino_eu: 'Indar gordineko erasoa',
-        definicion_es: 'Técnica que prueba de forma sistemática muchas contraseñas, claves o combinaciones hasta encontrar la correcta y obtener acceso a una cuenta o sistema.',
-        definicion_eu: 'Pasahitz, gako edo konbinazio asko sistematikoki probatzen dituen teknika, zuzena aurkitu eta kontu edo sistema batera sartzeko.',
-        ejemplo_es: 'Un atacante prueba miles de combinaciones contra una cuenta que todavía utiliza una contraseña corta y común, hasta conseguir iniciar sesión.',
-        ejemplo_eu: 'Erasotzaile batek milaka konbinazio probatzen ditu pasahitz labur eta arrunta erabiltzen duen kontu baten aurka, saioa hastea lortu arte.',
-        concepto_clave_es: 'Los ataques de diccionario utilizan listas de palabras y contraseñas filtradas; los ataques de fuerza bruta pura prueban todas las combinaciones posibles. La velocidad aumenta cuando se automatizan o se distribuyen entre muchos equipos.',
-        concepto_clave_eu: 'Hiztegi-erasoek hitz eta filtratutako pasahitzen zerrendak erabiltzen dituzte; indar gordineko eraso hutsek konbinazio posible guztiak probatzen dituzte. Abiadura handitu egiten da erasoak automatizatu edo hainbat ekipoen artean banatzen direnean.',
-        ejemplo_extra_es: 'Un servicio bloquea temporalmente una cuenta después de varios intentos fallidos y exige una autenticación multifactor para continuar.',
-        ejemplo_extra_eu: 'Zerbitzu batek kontu bat aldi baterako blokeatzen du huts egindako hainbat saiakeraren ondoren, eta faktore anitzeko autentifikazioa eskatzen du jarraitzeko.',
-        proteccion_es: 'Usar contraseñas largas y únicas, activar MFA, limitar los intentos de inicio de sesión y aplicar bloqueos o esperas progresivas.',
-        proteccion_eu: 'Erabili pasahitz luze eta bakarrak, aktibatu MFA, mugatu saioa hasteko saiakerak eta ezarri blokeoak edo itxaronaldi progresiboak.',
-        evaluacion: 2
+        id: 'mamuak',
+        termino_es: 'Ataques fantasma (Drive-by downloads)',
+        termino_eu: 'Mamuak (Drive-by downloads)',
+        definicion_es: 'Ataque que infecta una página web vulnerable con scripts maliciosos para descargar y ejecutar malware en el dispositivo del visitante sin una acción evidente por su parte.',
+        definicion_eu: 'Webgune zaurgarri bat script maltzurrekin kutsatzen duen erasoa, bisitariaren gailuan malwarea deskargatu eta exekutatzeko, erabiltzaileak ekintza agerikorik egin gabe.',
+        ejemplo_es: 'Una persona visita una web comprometida y un anuncio malicioso intenta explotar una vulnerabilidad del navegador para descargar malware.',
+        ejemplo_eu: 'Pertsona batek arriskuan dagoen webgune bat bisitatzen du eta iragarki maltzur bat nabigatzailearen zaurgarritasun bat ustiatzen saiatzen da malwarea deskargatzeko.',
+        concepto_clave_es: 'El ataque se produce durante la navegación, por eso es importante actualizar el navegador y evitar visitar sitios sospechosos.',
+        concepto_clave_eu: 'Erasoa nabigatzen ari den bitartean gertatzen da; horregatik, garrantzitsua da nabigatzailea eguneratzea eta gune susmagarriak saihestea.',
+        ejemplo_extra_es: 'Un iframe oculto carga un script desde otro servidor y prueba varias vulnerabilidades hasta encontrar una que funcione.',
+        ejemplo_extra_eu: 'Ezkutuko iframe batek beste zerbitzari bateko script bat kargatzen du eta hainbat zaurgarritasun probatzen ditu funtzionatzen duen bat aurkitu arte.',
+        proteccion_es: 'Actualizar navegador y sistema operativo, usar bloqueo de anuncios y limitar la ejecución de scripts no confiables.',
+        proteccion_eu: 'Nabigatzailea eta sistema eragilea eguneratzea, iragarki-blokeatzailea erabiltzea eta script fidagarrien exekuzioa mugatzea.',
+        evaluacion: 2,
+        helburuak_es: 'Confidencialidad e integridad',
+        helburuak_eu: 'Konfidentzialtasuna eta osasuna'
     }
 ];
 
@@ -168,16 +222,16 @@ const erasoak = [
         eragina_eu: 'Malware batek ingurune digitala gainditu eta azpiegitura kritikoetan kalte fisikoak eragin ditzakeela erakutsi zuen.'
     },
     {
-        id: 'wannacry',
-        izen_es: 'WannaCry',
-        izen_eu: 'WannaCry',
-        noiz_es: '2017 // Ataque mundial',
-        noiz_eu: '2017 // Mundu mailako erasoa',
-        gertatutakoa_es: 'WannaCry fue un ataque de ransomware que comenzó a propagarse rápidamente en mayo de 2017. Cifraba los archivos de los equipos infectados y exigía un pago en Bitcoin. Afectó a más de 200.000 ordenadores en alrededor de 150 países, incluidos sistemas del servicio sanitario británico NHS.',
-        gertatutakoa_eu: 'WannaCry ransomware-erasoa izan zen, 2017ko maiatzean azkar hedatzen hasi zena. Kutsatutako ekipoetako fitxategiak zifratu eta Bitcoin bidezko ordainketa eskatzen zuen. 200.000 ordenagailu baino gehiagori eragin zien 150 herrialde ingurutan, Erresuma Batuko NHS osasun-zerbitzuko sistemei barne.',
-        ezaugarriak_es: 'Combinaba ransomware y gusano de red; aprovechaba la vulnerabilidad EternalBlue de sistemas Windows sin actualizar; podía propagarse automáticamente y bloquear la disponibilidad de servicios esenciales.',
-        ezaugarriak_eu: 'Ransomwarea eta sareko zizare bat konbinatzen zituen; eguneratu gabeko Windows sistemen EternalBlue zaurgarritasuna baliatzen zuen; automatikoki heda zitekeen eta funtsezko zerbitzuen erabilgarritasuna blokeatu.',
-        eragina_es: 'Provocó interrupciones en hospitales, empresas y organizaciones públicas, y evidenció el riesgo de no instalar parches de seguridad.',
-        eragina_eu: 'Ospitale, enpresa eta erakunde publikoetan etenak eragin zituen, eta segurtasun-adabakiak ez instalatzearen arriskua agerian utzi zuen.'
+        id: 'alcasec',
+        izen_es: 'Caso Alcasec: ataque al Punto Neutro Judicial',
+        izen_eu: 'Alcasec kasua: Botere Judizialaren Punto Neutro-ren erasoa',
+        noiz_es: '2023 // España',
+        noiz_eu: '2023 // Espainia',
+        gertatutakoa_es: 'En 2023, la investigación policial atribuyó a Alcasec el acceso no autorizado al Punto Neutro Judicial, una plataforma que conecta información de la Justicia con otras administraciones. Según la investigación, se obtuvieron datos personales de cientos de miles de contribuyentes y posteriormente se ofrecieron datos en canales clandestinos.',
+        gertatutakoa_eu: '2023an, poliziaren ikerketak Alcaseci egotzi zion Botere Judizialaren Punto Neutro-ra baimenik gabe sartzea; plataforma horrek Justiziaren informazioa beste administrazio batzuekin konektatzen du. Ikerketaren arabera, ehunka mila zergadunen datu pertsonalak lortu ziren eta gero datuak kanal klandestinoetan eskaini ziren.',
+        ezaugarriak_es: 'Intrusión en sistemas de una institución pública; extracción y posible venta de información personal; el caso puso de manifiesto el riesgo de reutilizar credenciales y de no proteger adecuadamente los accesos a plataformas interadministrativas.',
+        ezaugarriak_eu: 'Erakunde publiko baten sistemetan intrusioa; informazio pertsonala atera eta balizko salmenta; kasuak kredentzialak berrerabiltzearen eta administrazioen arteko plataformen sarbideak behar bezala ez babestearen arriskua agerian utzi zuen.',
+        eragina_es: 'El incidente afectó principalmente a la confidencialidad de los datos y mostró la importancia de la autenticación robusta, el control de accesos y la trazabilidad en los servicios públicos.',
+        eragina_eu: 'Gertakariak datuen konfidentzialtasunari eragin zion batez ere, eta zerbitzu publikoetan autentifikazio sendoa, sarbideen kontrola eta trazabilitatea garrantzitsuak direla erakutsi zuen.'
     }
 ];

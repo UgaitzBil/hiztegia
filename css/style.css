@@ -65,6 +65,7 @@ nav a:hover, nav a:focus-visible, .button-link:hover, .button-link:focus-visible
 .term-card { display: flex; min-height: 190px; flex-direction: column; justify-content: space-between; padding: 1.35rem; border: 1px solid var(--border); background: color-mix(in srgb, var(--panel) 90%, transparent); color: var(--text); text-decoration: none; opacity: 0; animation: glow-pulse 4s ease-in-out infinite; transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease; }
 .term-card:hover, .term-card:focus-visible { transform: translateY(-5px); border-color: var(--cyan); background: var(--panel-soft); box-shadow: 0 0 15px rgba(0,240,255,.4), 0 8px 28px rgba(0,240,255,.15); outline: none; }
 .term-card h3 { margin: 1rem 0; color: var(--text); font-size: 1.45rem; }
+.term-card__goal { min-height: 2.6rem; color: var(--green); font-size: .85rem; }
 .term-card__action { color: var(--cyan); font: .8rem "Courier New", monospace; }
 .term-card__action span { margin-left: .35rem; font-size: 1.1rem; }
 .attacks-section { margin-bottom: 4.5rem; }
@@ -90,6 +91,7 @@ nav a:hover, nav a:focus-visible, .button-link:hover, .button-link:focus-visible
 .definition-content p { color: var(--text); font-size: 1.1rem; }
 .example { padding: 1rem; border-left: 2px solid var(--cyan); background: rgba(0,240,255,.06); }
 .protection-section { padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.security-goal-section { padding: 1rem; border: 1px solid var(--border); background: rgba(0,240,255,.06); }
 @keyframes glow-pulse { 0%, 100% { box-shadow: 0 0 5px rgba(0,240,255,.08); } 50% { box-shadow: 0 0 14px rgba(0,240,255,.22); } }
 @keyframes title-glitch {
     0%, 88%, 100% { text-shadow: 0 0 18px rgba(0,240,255,.35); }
