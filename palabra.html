@@ -6,6 +6,8 @@
     <meta name="description" content="Definición bilingüe de un término de ciberseguridad.">
     <title>Definición | Zibersegurtasun Hiztegia</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/icon.png">
+</head>
 </head>
 <body>
     <div id="particles-background" aria-hidden="true"></div>
@@ -22,6 +24,10 @@
             <p class="section-number" id="evaluation-label"></p>
             <p class="eyebrow" id="entry-label">ENTRADA DEL DICCIONARIO</p>
             <h1 id="term-title"></h1>
+            <figure class="term-illustration">
+                <img id="term-image" src="img/ciberseguridad.svg" alt="Ilustración de ciberseguridad">
+                <figcaption id="term-image-caption">Una imagen para recordar que la seguridad digital empieza por conocer los riesgos.</figcaption>
+            </figure>
             <div class="definition-content">
                 <section class="definition-section">
                     <h2 id="definition-label">DEFINICIÓN</h2>
@@ -47,6 +53,18 @@
                     <h2 id="security-goal-label">OBJETIVO DE SEGURIDAD</h2>
                     <p id="term-security-goal"></p>
                 </section>
+                <section class="definition-section">
+                    <h2 id="why-label">POR QUÉ</h2>
+                    <p id="term-why"></p>
+                </section>
+                <section class="definition-section reflection-section">
+                    <h2 id="reflection-label">HAUSNARKETA</h2>
+                    <p id="term-reflection"></p>
+                </section>
+                <section class="definition-section sources-section">
+                    <h2 id="sources-label">FUENTES</h2>
+                    <ul id="term-sources"></ul>
+                </section>
             </div>
         </article>
     </main>
@@ -64,8 +82,8 @@
         let currentLanguage = localStorage.getItem('hiztegia-language') || 'es';
         const card = document.querySelector('#definition-card');
         const labels = {
-            es: { entry: 'ENTRADA DEL DICCIONARIO', definition: 'DEFINICIÓN', example: 'EJEMPLO', keyConcept: 'CONCEPTO CLAVE', extraExample: 'EJEMPLO ADICIONAL', protection: 'PROTECCIÓN', securityGoal: 'OBJETIVO DE SEGURIDAD', evaluation: 'EVALUACIÓN', missing: 'TÉRMINO NO ENCONTRADO', message: 'Comprueba el enlace o vuelve al listado para elegir una entrada válida.' },
-            eu: { entry: 'HIZTEGIKO SARRERA', definition: 'DEFINIZIOA', example: 'ADIBIDEA', keyConcept: 'KONTZEPTU GAKOA', extraExample: 'ADIBIDE GEHIGARRIA', protection: 'BABESA', securityGoal: 'SEGURTASUN-HELBURUA', evaluation: 'EBALUAZIOA', missing: 'TERMINOA EZ DA AURKITU', message: 'Egiaztatu esteka edo itzuli zerrendara baliozko sarrera bat aukeratzeko.' }
+            es: { entry: 'ENTRADA DEL DICCIONARIO', definition: 'DEFINICIÓN', example: 'EJEMPLO', keyConcept: 'CONCEPTO CLAVE', extraExample: 'EJEMPLO ADICIONAL', protection: 'PROTECCIÓN', securityGoal: 'OBJETIVO DE SEGURIDAD', why: 'POR QUÉ', reflection: 'REFLEXIÓN', imageAlt: 'Ilustración de ciberseguridad', imageCaption: 'Una imagen para recordar que la seguridad digital empieza por conocer los riesgos.', sources: 'FUENTES', evaluation: 'EVALUACIÓN', missing: 'TÉRMINO NO ENCONTRADO', message: 'Comprueba el enlace o vuelve al listado para elegir una entrada válida.' },
+            eu: { entry: 'HIZTEGIKO SARRERA', definition: 'DEFINIZIOA', example: 'ADIBIDEA', keyConcept: 'KONTZEPTU GAKOA', extraExample: 'ADIBIDE GEHIGARRIA', protection: 'BABESA', securityGoal: 'SEGURTASUN-HELBURUA', why: 'ZERGATIA', reflection: 'HAUSNARKETA', imageAlt: 'Zibersegurtasunaren ilustrazioa', imageCaption: 'Irudi honek gogorarazten digu segurtasun digitala arriskuak ezagutzen hasten dela.', sources: 'ITURRIAK', evaluation: 'EBALUAZIOA', missing: 'TERMINOA EZ DA AURKITU', message: 'Egiaztatu esteka edo itzuli zerrendara baliozko sarrera bat aukeratzeko.' }
         };
         // Pinta la entrada con el idioma actual y actualiza el estado visual del selector.
         function renderDefinition() {
@@ -91,6 +109,11 @@
             document.querySelector('#extra-example-label').textContent = languageLabels.extraExample;
             document.querySelector('#protection-label').textContent = languageLabels.protection;
             document.querySelector('#security-goal-label').textContent = languageLabels.securityGoal;
+            document.querySelector('#why-label').textContent = languageLabels.why;
+            document.querySelector('#reflection-label').textContent = languageLabels.reflection;
+            document.querySelector('#term-image').alt = languageLabels.imageAlt;
+            document.querySelector('#term-image-caption').textContent = languageLabels.imageCaption;
+            document.querySelector('#sources-label').textContent = languageLabels.sources;
             document.querySelector('#term-title').textContent = term[`termino_${currentLanguage}`];
             document.querySelector('#term-definition').textContent = term[`definicion_${currentLanguage}`];
             document.querySelector('#term-example').textContent = term[`ejemplo_${currentLanguage}`];
@@ -98,6 +121,22 @@
             document.querySelector('#term-extra-example').textContent = term[`ejemplo_extra_${currentLanguage}`];
             document.querySelector('#term-protection').textContent = term[`proteccion_${currentLanguage}`];
             document.querySelector('#term-security-goal').textContent = term[`helburuak_${currentLanguage}`];
+            document.querySelector('#term-why').textContent = term[`zergatia_${currentLanguage}`];
+            document.querySelector('#term-reflection').textContent = currentLanguage === 'es'
+                ? 'Conocer este riesgo me ayuda a actuar con más cuidado y a proteger mejor mis datos.'
+                : 'Arrisku hau ezagutzeak kontu handiagoz jarduten eta nire datuak hobeto babesten laguntzen dit.';
+            const sources = document.querySelector('#term-sources');
+            sources.replaceChildren();
+            term.fuentes.forEach((source) => {
+                const item = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = source;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = source;
+                item.appendChild(link);
+                sources.appendChild(item);
+            });
         }
 
         const particleOptions = {

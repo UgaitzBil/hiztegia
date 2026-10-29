@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 220" role="img" aria-labelledby="title description">
+  <title id="title">Ilustración de ciberseguridad</title>
+  <desc id="description">Escudo digital conectado a una red de nodos.</desc>
+  <rect width="640" height="220" rx="12" fill="#111827"/>
+  <g fill="none" stroke="#00f0ff" stroke-width="2" opacity=".65">
+    <path d="M70 55L180 105 70 165M570 55L460 105 570 165M180 105h280"/>
+    <circle cx="70" cy="55" r="7" fill="#00ff66"/>
+    <circle cx="70" cy="165" r="7" fill="#00ff66"/>
+    <circle cx="570" cy="55" r="7" fill="#00ff66"/>
+    <circle cx="570" cy="165" r="7" fill="#00ff66"/>
+  </g>
+  <path d="M320 35l65 25v48c0 42-29 66-65 79-36-13-65-37-65-79V60z" fill="#182235" stroke="#00f0ff" stroke-width="4"/>
+  <path d="M320 75v55M292 103h56" stroke="#00ff66" stroke-width="8" stroke-linecap="round"/>
+</svg>

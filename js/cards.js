@@ -3,19 +3,23 @@ const translations = {
         eyebrow: 'DICCIONARIO DE CIBERSEGURIDAD // TERMINAL EDUCATIVA',
         title: 'Zibersegurtasun Hiztegia',
         intro: 'Explora los conceptos esenciales para moverte con seguridad por el mundo digital.',
-        evaluation1: '01 / PRIMERA EVALUACIÓN', evaluation2: '02 / SEGUNDA EVALUACIÓN',
-        description1: 'Fundamentos y amenazas habituales.', description2: 'Amenazas y técnicas de ataque.',
+        evaluation1: '01 / PRIMERA EVALUACIÓN', evaluation2: '02 / SEGUNDA EVALUACIÓN', evaluation3: '03 / TERCERA EVALUACIÓN',
+        description1: 'Fundamentos y amenazas habituales.', description2: 'Amenazas y técnicas de ataque.', description3: 'Malware y técnicas de ataque.',
         attacks: '03 / ATAQUES', attacksDescription: 'Ejemplos de ciberataques con gran impacto.',
-        term: 'TÉRMINO', securityGoal: 'OBJETIVO', action: 'CONSULTAR DEFINICIÓN', footer: 'SISTEMA ACTIVO // APRENDER ES PROTEGER'
+        term: 'TÉRMINO', securityGoal: 'OBJETIVO', action: 'CONSULTAR DEFINICIÓN', footer: 'SISTEMA ACTIVO // APRENDER ES PROTEGER',
+        presentationTitle: 'PRESENTACIÓN', presentation: 'Diccionario bilingüe de ciberseguridad elaborado por el alumno Ugaitz.',
+        why: 'POR QUÉ', sources: 'FUENTES'
     },
     eu: {
         eyebrow: 'ZIBERSEGURTASUN HIZTEGIA // HEZKUNTZA-TERMINALA',
         title: 'Zibersegurtasun Hiztegia',
         intro: 'Arakatu mundu digitalean modu seguruan mugitzeko oinarrizko kontzeptuak.',
-        evaluation1: '01 / LEHEN EBALUAZIOA', evaluation2: '02 / BIGARREN EBALUAZIOA',
-        description1: 'Oinarriak eta ohiko mehatxuak.', description2: 'Mehatxuak eta eraso-teknikak.',
+        evaluation1: '01 / LEHEN EBALUAZIOA', evaluation2: '02 / BIGARREN EBALUAZIOA', evaluation3: '03 / HIRUGARREN EBALUAZIOA',
+        description1: 'Oinarriak eta ohiko mehatxuak.', description2: 'Mehatxuak eta eraso-teknikak.', description3: 'Malwarea eta eraso-teknikak.',
         attacks: '03 / ERASOAK', attacksDescription: 'Eragin handia izan duten zibererasoen adibideak.',
-        term: 'TERMINOA', securityGoal: 'HELBURUA', action: 'DEFINIZIOA IKUSI', footer: 'SISTEMA AKTIBOA // IKASTEA BABESTEA DA'
+        term: 'TERMINOA', securityGoal: 'HELBURUA', action: 'DEFINIZIOA IKUSI', footer: 'SISTEMA AKTIBOA // IKASTEA BABESTEA DA',
+        presentationTitle: 'AURKEZPENA', presentation: 'Ugaitz ikasleak egindako zibersegurtasuneko hiztegi elebiduna.',
+        why: 'ZERGATIA', sources: 'ITURRIAK'
     }
 };
 
@@ -100,7 +104,7 @@ function renderInterface() {
             card.style.setProperty('--card-delay', `${index * 100}ms`);
             card.innerHTML = `
                 <p class="attack-card__meta">${attack[`noiz_${currentLanguage}`]}</p>
-                <h3>${attack[`izen_${currentLanguage}`]}</h3>
+                <h3>${attack.href ? `<a href="${attack.href}">${attack[`izen_${currentLanguage}`]}</a>` : attack[`izen_${currentLanguage}`]}</h3>
                 <section>
                     <h4>${currentLanguage === 'es' ? 'QUÉ OCURRIÓ' : 'ZER GERTATU ZEN'}</h4>
                     <p>${attack[`gertatutakoa_${currentLanguage}`]}</p>

@@ -18,8 +18,11 @@ const diccionario = [
         proteccion_es: 'Habilitar la Autenticación de Doble Factor (2FA) y revisar siempre la URL real en la barra de direcciones.',
         proteccion_eu: 'Faktore Bikoitzeko Autentifikazioa (2FA) gaitzea eta helbide-barran beti benetako URLa berrikustea.',
         evaluacion: 1,
-        helburuak_es: 'Confidencialidad, autenticación y no repudio',
-        helburuak_eu: 'Konfidentzialtasuna, autentifikazioa eta ez-gaiteztea'
+        helburuak_es: 'Confidencialidad y autenticación',
+        helburuak_eu: 'Konfidentzialtasuna eta autentifikazioa',
+        zergatia_es: 'El engaño busca obtener información confidencial y hacerse pasar por una entidad legítima.',
+        zergatia_eu: 'Engainuak informazio konfidentziala lortu eta erakunde legitimo baten itxura hartzea bilatzen du.',
+        fuentes: ['https://es.wikipedia.org/wiki/Phishing']
     },
     {
         id: 'ddos',
@@ -37,7 +40,10 @@ const diccionario = [
         proteccion_eu: 'Karga-balantzatzaileak, edukia banatzeko sareak (CDN) eta IP bidezko trafiko anomaloaren iragazketa erabiltzea.',
         evaluacion: 1,
         helburuak_es: 'Disponibilidad',
-        helburuak_eu: 'Erabilgarritasuna'
+        helburuak_eu: 'Erabilgarritasuna',
+        zergatia_es: 'Se llama DDoS por las siglas de Distributed Denial of Service, es decir, denegación de servicio distribuida: muchas fuentes coordinadas saturan un servicio.',
+        zergatia_eu: 'DDoS Distributed Denial of Service sigletatik dator; zerbitzu-ukatze banatua da, iturri askok zerbitzu bat aldi berean saturatzen dutelako.',
+        fuentes: ['https://es.wikipedia.org/wiki/Ataque_de_denegaci%C3%B3n_de_servicio']
     },
     {
         id: 'troyano',
@@ -53,9 +59,12 @@ const diccionario = [
         ejemplo_extra_eu: 'Zure ordenagailua moteltzen duen kriptomoneta-meatzari bat isilik instalatzen duen diseinu-programa bat doan deskargatzen duzu.',
         proteccion_es: 'Descargar software únicamente de repositorios oficiales y mantener un antivirus (EDR) actualizado.',
         proteccion_eu: 'Softwarea biltegi ofizialetatik soilik deskargatzea eta antibirus bat (EDR) eguneratuta mantentzea.',
-        evaluacion: 2,
+        evaluacion: 1,
         helburuak_es: 'Integridad y autenticación',
-        helburuak_eu: 'Osasuna eta autentifikazioa'
+        helburuak_eu: 'Osotasuna eta autentifikazioa',
+        zergatia_es: 'Un troyano modifica o controla el sistema y puede abrir un acceso no autorizado.',
+        zergatia_eu: 'Troiar batek sistema aldatu edo kontrola dezake eta baimenik gabeko sarbidea ireki dezake.',
+        fuentes: ['https://es.wikipedia.org/wiki/Troyano_(inform%C3%A1tica)']
     },
     {
         id: 'backdoors',
@@ -71,9 +80,12 @@ const diccionario = [
         ejemplo_extra_eu: 'Firmwarean kodetutako ezkutuko administratzaile-kontu batekin fabrikatik datorren bideratzaile (router) bat.',
         proteccion_es: 'Auditorías de código fuente, monitoreo de integridad de archivos y segmentación de red.',
         proteccion_eu: 'Iturburu-kodearen auditoretzak, fitxategien osotasunaren monitorizazioa eta sarearen segmentazioa.',
-        evaluacion: 2,
+        evaluacion: 1,
         helburuak_es: 'Autenticación e integridad',
-        helburuak_eu: 'Autentifikazioa eta osasuna'
+        helburuak_eu: 'Autentifikazioa eta osotasuna',
+        zergatia_es: 'Una puerta trasera permite saltarse la autenticación y alterar el sistema desde un acceso oculto.',
+        zergatia_eu: 'Atzeko ate batek autentifikazioa saihestu eta sistema ezkutuko sarbide baten bidez aldatzea ahalbidetzen du.',
+        fuentes: ['https://es.wikipedia.org/wiki/Backdoor']
     },
     {
         id: 'spyware',
@@ -91,7 +103,10 @@ const diccionario = [
         proteccion_eu: 'Mugikorreko aplikazioen baimenak sakon berrikustea eta sistema eragilearen segurtasun-adabakiak instalatzea.',
         evaluacion: 1,
         helburuak_es: 'Confidencialidad',
-        helburuak_eu: 'Konfidentzialtasuna'
+        helburuak_eu: 'Konfidentzialtasuna',
+        zergatia_es: 'Su finalidad principal es observar y extraer información privada sin consentimiento.',
+        zergatia_eu: 'Bere helburu nagusia baimenik gabe informazio pribatua behatzea eta ateratzea da.',
+        fuentes: ['https://es.wikipedia.org/wiki/Spyware']
     },
     {
         id: 'stealers',
@@ -109,7 +124,10 @@ const diccionario = [
         proteccion_eu: 'Pasahitz kritikoak nabigatzailean ez gordetzea eta segurtasun-gako fisikoak (FIDO2) erabiltzea.',
         evaluacion: 1,
         helburuak_es: 'Confidencialidad',
-        helburuak_eu: 'Konfidentzialtasuna'
+        helburuak_eu: 'Konfidentzialtasuna',
+        zergatia_es: 'Los stealers están diseñados específicamente para copiar credenciales, cookies y otros datos sensibles.',
+        zergatia_eu: 'Stealerrek kredentzialak, cookieak eta bestelako datu sentikorrak kopiatzeko diseinatuta daude.',
+        fuentes: ['https://attack.mitre.org/techniques/T1555/']
     },
 
     // ==========================================
@@ -130,8 +148,11 @@ const diccionario = [
         proteccion_es: 'No abrir enlaces inesperados, verificar el mensaje por otro canal, mantener el sistema actualizado y utilizar protección antimalware.',
         proteccion_eu: 'Ez ireki ustekabeko estekarik, egiaztatu mezua beste kanal baten bidez, mantendu sistema eguneratuta eta erabili malwarearen aurkako babesa.',
         evaluacion: 2,
-        helburuak_es: 'Confidencialidad, autenticación y no repudio',
-        helburuak_eu: 'Konfidentzialtasuna, autentifikazioa eta ez-gaiteztea'
+        helburuak_es: 'Confidencialidad y autenticación',
+        helburuak_eu: 'Konfidentzialtasuna eta autentifikazioa',
+        zergatia_es: 'Koobface roba credenciales y utiliza cuentas comprometidas para propagarse mediante mensajes que parecen legítimos.',
+        zergatia_eu: 'Koobfacek kredentzialak lapurtzen ditu eta arriskuan dauden kontuak erabiltzen ditu mezu legitimoen bidez zabaltzeko.',
+        fuentes: ['https://en.wikipedia.org/wiki/Koobface']
     },
     {
         id: 'indar-gordineko-erasoa',
@@ -149,7 +170,10 @@ const diccionario = [
         proteccion_eu: 'Erabili pasahitz luze eta bakarrak, aktibatu MFA, mugatu saioa hasteko saiakerak eta ezarri blokeoak edo itxaronaldi progresiboak.',
         evaluacion: 2,
         helburuak_es: 'Autenticación',
-        helburuak_eu: 'Autentifikazioa'
+        helburuak_eu: 'Autentifikazioa',
+        zergatia_es: 'El objetivo del ataque es adivinar la credencial correcta y superar el control de acceso.',
+        zergatia_eu: 'Erasoaren helburua kredentzial zuzena asmatzea eta sarbide-kontrola gainditzea da.',
+        fuentes: ['https://owasp.org/www-community/attacks/Brute_force_attack']
     },
     {
         id: 'harrak',
@@ -165,9 +189,12 @@ const diccionario = [
         ejemplo_extra_eu: 'Adabakirik gabeko ekipo bat zerbitzu zaurgarri baten aurrean geratzen da, eta har batek kutsatu egiten du malware gehiago deskargatzeko.',
         proteccion_es: 'Mantener el sistema actualizado, cerrar puertos innecesarios, utilizar un antivirus actualizado y segmentar la red.',
         proteccion_eu: 'Sistema eguneratuta mantentzea, beharrezkoak ez diren atakak ixtea, antibirus eguneratua erabiltzea eta sarea segmentatzea.',
-        evaluacion: 2,
+        evaluacion: 3,
         helburuak_es: 'Confidencialidad e integridad',
-        helburuak_eu: 'Konfidentzialtasuna eta osasuna'
+        helburuak_eu: 'Konfidentzialtasuna eta osotasuna',
+        zergatia_es: 'Al propagarse y modificar procesos o archivos, un gusano puede exponer datos y alterar sistemas.',
+        zergatia_eu: 'Zabaltzean eta prozesuak edo fitxategiak aldatzean, har batek datuak agerian utzi eta sistemak alda ditzake.',
+        fuentes: ['https://es.wikipedia.org/wiki/Malware']
     },
     {
         id: 'botnet',
@@ -185,7 +212,10 @@ const diccionario = [
         proteccion_eu: 'Aldatu lehenetsitako kredentzialak, eguneratu firmwarea, desaktibatu beharrezkoak ez diren zerbitzuak eta zaindu sareko trafiko anomaloa.',
         evaluacion: 2,
         helburuak_es: 'Disponibilidad y confidencialidad',
-        helburuak_eu: 'Erabilgarritasuna eta konfidentzialtasuna'
+        helburuak_eu: 'Erabilgarritasuna eta konfidentzialtasuna',
+        zergatia_es: 'Una botnet puede consumir recursos para interrumpir servicios y también robar o distribuir información.',
+        zergatia_eu: 'Botnet batek baliabideak kontsumitu ditzake zerbitzuak eteteko, eta informazioa lapurtu edo banatu dezake.',
+        fuentes: ['https://es.wikipedia.org/wiki/Botnet']
     },
     {
         id: 'mamuak',
@@ -201,9 +231,12 @@ const diccionario = [
         ejemplo_extra_eu: 'Ezkutuko iframe batek beste zerbitzari bateko script bat kargatzen du eta hainbat zaurgarritasun probatzen ditu funtzionatzen duen bat aurkitu arte.',
         proteccion_es: 'Actualizar navegador y sistema operativo, usar bloqueo de anuncios y limitar la ejecución de scripts no confiables.',
         proteccion_eu: 'Nabigatzailea eta sistema eragilea eguneratzea, iragarki-blokeatzailea erabiltzea eta script fidagarrien exekuzioa mugatzea.',
-        evaluacion: 2,
-        helburuak_es: 'Confidencialidad e integridad',
-        helburuak_eu: 'Konfidentzialtasuna eta osasuna'
+        evaluacion: 3,
+        helburuak_es: 'Confidencialidad',
+        helburuak_eu: 'Konfidentzialtasuna',
+        zergatia_es: 'El sitio comprometido descarga malware sin una acción consciente, poniendo en riesgo los datos del visitante.',
+        zergatia_eu: 'Arriskuan dagoen guneak malwarea deskargatzen du kontzienteki jardun gabe, bisitariaren datuak arriskuan jarriz.',
+        fuentes: ['https://attack.mitre.org/techniques/T1189/']
     }
 ];
 
@@ -219,7 +252,8 @@ const erasoak = [
         ezaugarriak_es: 'Ataque dirigido contra sistemas de control industrial (ICS/SCADA); utilizó varias vulnerabilidades de día cero; se propagaba mediante dispositivos USB y redes Windows; manipulaba el proceso físico mientras ocultaba sus cambios al operador.',
         ezaugarriak_eu: 'Kontrol industrialeko sistemen (ICS/SCADA) aurkako eraso zuzendua; zero-day zaurgarritasun batzuk erabili zituen; USB gailuen eta Windows sareen bidez zabaltzen zen; prozesu fisikoa manipulatzen zuen, operadoreari aldaketak ezkutatuz.',
         eragina_es: 'Demostró que un malware puede superar el entorno digital y causar daños físicos en infraestructuras críticas.',
-        eragina_eu: 'Malware batek ingurune digitala gainditu eta azpiegitura kritikoetan kalte fisikoak eragin ditzakeela erakutsi zuen.'
+        eragina_eu: 'Malware batek ingurune digitala gainditu eta azpiegitura kritikoetan kalte fisikoak eragin ditzakeela erakutsi zuen.',
+        fuentes: ['https://es.wikipedia.org/wiki/Stuxnet']
     },
     {
         id: 'alcasec',
@@ -232,6 +266,7 @@ const erasoak = [
         ezaugarriak_es: 'Intrusión en sistemas de una institución pública; extracción y posible venta de información personal; el caso puso de manifiesto el riesgo de reutilizar credenciales y de no proteger adecuadamente los accesos a plataformas interadministrativas.',
         ezaugarriak_eu: 'Erakunde publiko baten sistemetan intrusioa; informazio pertsonala atera eta balizko salmenta; kasuak kredentzialak berrerabiltzearen eta administrazioen arteko plataformen sarbideak behar bezala ez babestearen arriskua agerian utzi zuen.',
         eragina_es: 'El incidente afectó principalmente a la confidencialidad de los datos y mostró la importancia de la autenticación robusta, el control de accesos y la trazabilidad en los servicios públicos.',
-        eragina_eu: 'Gertakariak datuen konfidentzialtasunari eragin zion batez ere, eta zerbitzu publikoetan autentifikazio sendoa, sarbideen kontrola eta trazabilitatea garrantzitsuak direla erakutsi zuen.'
+        eragina_eu: 'Gertakariak datuen konfidentzialtasunari eragin zion batez ere, eta zerbitzu publikoetan autentifikazio sendoa, sarbideen kontrola eta trazabilitatea garrantzitsuak direla erakutsi zuen.',
+        fuentes: ['https://www.google.com/search?q=Alcasec+Punto+Neutro+Judicial']
     }
 ];

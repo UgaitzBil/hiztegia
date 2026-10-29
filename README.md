@@ -58,9 +58,20 @@ Cada término tiene esta estructura:
     definicion_eu: '...',
     ejemplo_es: '...',
     ejemplo_eu: '...',
-    evaluacion: 1
+    proteccion_es: '...',
+    proteccion_eu: '...',
+    evaluacion: 1,
+    helburuak_es: '...',
+    helburuak_eu: '...',
+    zergatia_es: '...',
+    zergatia_eu: '...',
+    fuentes: ['https://ejemplo.com/fuente']
 }
 ```
+
+La primera evaluación contiene seis conceptos. Los términos con `evaluacion: 3`
+se muestran junto a las fichas históricas en `03 / ERASOAK`; las fichas del
+diccionario mantienen su enlace a la página de definición.
 
 El campo `id` se utiliza para construir los enlaces:
 
